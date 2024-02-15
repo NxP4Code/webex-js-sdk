@@ -1,7 +1,5 @@
-import {
-  // @ts-ignore
-  deviceType,
-} from '@webex/common';
+// @ts-ignore
+import {deviceType} from '@webex/common';
 
 export default {
   // TODO: this needs to be defaulted
@@ -90,8 +88,8 @@ export default {
     enableExtmap: false,
     experimental: {
       enableMediaNegotiatedEvent: false,
-      enableUnifiedMeetings: false,
-      enableAdhocMeetings: false,
+      enableUnifiedMeetings: true,
+      enableAdhocMeetings: true,
       enableTurnDiscovery: true,
     },
   },

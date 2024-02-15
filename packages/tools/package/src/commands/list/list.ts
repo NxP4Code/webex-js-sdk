@@ -46,8 +46,22 @@ const list: CommandsCommand<Options> = {
     since: options.since,
   })
     .then((packageDetails) => packageDetails.map(({ name }: YarnListPackage) => name))
-    .then((packageNames) => {
-      process.stdout.write(packageNames.join(' '));
+    .then((packageNames: Array<string>) => {
+      let output: string;
+
+      switch (options.mode) {
+        case CONSTANTS.MODES.NODE:
+          output = packageNames.join(' ');
+          break;
+
+        case CONSTANTS.MODES.YARN:
+        default:
+          output = packageNames.length === 1
+            ? packageNames[0]
+            : `{${packageNames.join(',')}}`;
+      }
+
+      process.stdout.write(output);
     }),
 };
 

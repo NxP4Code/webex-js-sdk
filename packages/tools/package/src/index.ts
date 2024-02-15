@@ -4,7 +4,7 @@
  * @packageDocumentation
  */
 
-import { increment, list } from './commands';
+import { increment, list, scripts } from './commands';
 import { Package } from './models';
 import { Yarn } from './utils';
 
@@ -22,12 +22,15 @@ export type {
 
 export type {
   IncrementOptions,
+  ListMode,
   ListOptions,
+  ScriptsOptions,
 } from './commands';
 
 export {
   increment,
   list,
   Package,
+  scripts,
   Yarn,
 };

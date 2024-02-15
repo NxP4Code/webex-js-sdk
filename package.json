@@ -1,6 +1,6 @@
 {
   "name": "webex-js-sdk",
-  "version": "2.48.0",
+  "version": "2.60.1",
   "description": "JavaScript SDK for interacting with the Webex API",
   "homepage": "https://github.com/webex/webex-js-sdk",
   "bugs": {
@@ -29,7 +29,7 @@
     "clean": "rimraf packages/**/.coverage packages/**/dist packages/**/types",
     "prebuild": "yarn run clean",
     "build": "node ./tooling/index.js build && yarn && yarn ws:tools build && yarn run build:tsc",
-    "build:tsc": "yarn run tsc -p ./config/tsconfig.typecheck.json --noEmit && yarn workspace @webex/plugin-meetings run build",
+    "build:tsc": "yarn workspace @webex/plugin-meetings run build && yarn run tsc -p ./config/tsconfig.typecheck.json --noEmit",
     "build:script": "node ./tooling/index.js build --umd",
     "build:skip-samples": "node ./tooling/index.js build --skip-samples && yarn workspace @webex/plugin-meetings run build",
     "build:dev": "NODE_ENV=development node ./tooling/index.js build",

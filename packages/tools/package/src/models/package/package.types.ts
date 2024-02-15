@@ -1,4 +1,22 @@
 /**
+ * Package and version information from the registry.
+ *
+ * @public
+ */
+export interface PackageInfo {
+  /**
+   * Primary version for this Package on the registry.
+   */
+  version: string;
+
+  /**
+   * Record of all distribution tags and their versions availble for this
+   * package on the registry.
+   */
+  'dist-tags': Record<string, string>;
+}
+
+/**
  * Version Object for defining a Package instance version.
  *
  * @public
@@ -28,6 +46,26 @@ export interface Version {
    * Tag that this Version Object applies to.
    */
   tag: string;
+}
+
+/**
+ * Package definition object.
+ *
+ * @remarks
+ * This is a common shape for `package.json` files.
+ *
+ * @public
+ */
+export interface Definition {
+  /**
+   * Version of the parsed package definition.
+   */
+  version?: string;
+
+  /**
+   * Scripts associated with the parsed package definition.
+   */
+  scripts?: Record<string, string>;
 }
 
 /**
@@ -69,7 +107,24 @@ export interface Data {
   name: string;
 
   /**
+   * Inspected package and version info from the registry.
+   */
+  packageInfo: PackageInfo;
+
+  /**
    * Version of the associated Package instance.
    */
   version: Version;
+}
+
+/**
+ * Options to be provided to Package.Inspect().
+ *
+ * @public
+ */
+export interface InspectOptions {
+  /**
+   * Package to inspect on the registry.
+   */
+  package: string;
 }
